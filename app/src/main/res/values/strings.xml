@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CoiBoiTinhYeu</string>
+    <string name="log_in">Đăng Nhập</string>
+
+    <string-array name="spinnerGender">
+        <item>Chọn giới tính</item>
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
+
+    <string-array name="spinnerZodiac">
+        <item ><font color='#F2059F'><b>Chọn cung hoàng đạo</b></font></item>
+        <item ><font color='#F2059F'><b>Bạch Dương</b></font></item>
+        <item ><font color='#F2059F'><b>Kim Ngưu</b></font></item>
+        <item ><font color='#F2059F'><b>Song Tử</b></font></item>
+        <item ><font color='#F2059F'><b>Cự Giải</b></font></item>
+        <item ><font color='#F2059F'><b>Sư Tử</b></font></item>
+        <item ><font color='#F2059F'><b>Xử Nữ</b></font></item>
+        <item ><font color='#F2059F'><b>Thiên Bình</b></font></item>
+        <item ><font color='#F2059F'><b>Bọ Cạp</b></font></item>
+        <item ><font color='#F2059F'><b>Nhân Mã</b></font></item>
+        <item ><font color='#F2059F'><b>Ma Kết</b></font></item>
+        <item ><font color='#F2059F'><b>Bảo Bình</b></font></item>
+        <item ><font color='#F2059F'><b>Song Ngư</b></font></item>
+    </string-array>
+
+</resources>

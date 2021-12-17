@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_divination_name"
+    tools:context=".divination_zodiac">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/divinationZodiac_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/ic_back_white_24">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/googlesans_regular"
+                android:text="Bói theo cung hoàng đạo"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:id="@+id/divinationZodiac_layout"
+        android:padding="25dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Cung hoàng đạo của bạn"
+            android:textSize="18sp"
+            android:textColor="@color/pinkStatusBar"
+            android:drawableRight="@drawable/ic_drop_down_24"/>
+
+        <Spinner
+            android:id="@+id/divinationZodiac_myZodiac"
+            android:layout_width="match_parent"
+            android:textSize="18sp"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:entries="@array/spinnerZodiac"
+            android:minHeight="48dp"
+            android:background="@drawable/switch_tumbs_10"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Cung hoàng đạo người yêu của bạn"
+            android:textSize="18sp"
+            android:textColor="@color/pinkStatusBar"
+            android:drawableRight="@drawable/ic_drop_down_24"/>
+
+        <Spinner
+            android:id="@+id/divinationZodiac_yourZodiac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/switch_tumbs_10"
+            android:entries="@array/spinnerZodiac"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnCheckName"
+            android:layout_marginTop="24dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
+            android:text="Kiểm tra"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:elevation="15dp"
+            android:gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/pinkStatusBar"
+            android:layout_gravity="center"
+            app:shapeAppearanceOverlay="@style/Button5"
+            app:backgroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>
