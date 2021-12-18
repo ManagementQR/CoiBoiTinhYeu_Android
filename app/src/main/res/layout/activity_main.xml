@@ -262,7 +262,7 @@
 
             </LinearLayout>
             <Button
-                android:id="@+id/singIn"
+                android:id="@+id/signIn"
                 android:text="@string/log_in"
                 android:textSize="17sp"
                 android:textAllCaps="false"
