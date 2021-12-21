@@ -4,57 +4,57 @@ package com.nguyencongthuan.coiboitinhyeu.Model;
 import java.util.Date;
 
 public class User {
-    private String Username ;
-    private String Password ;
-    private String Fullname ;
-    private Date DoB ;
-    private int Gender ;
+    private String username ;
+    private String password ;
+    private String fullname ;
+    private Date doB ;
+    private int gender ;
 
     public User(String username, String password, String fullname, Date doB, int gender) {
-        Username = username;
-        Password = password;
-        Fullname = fullname;
-        DoB = doB;
-        Gender = gender;
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.doB = doB;
+        this.gender = gender;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        this.username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getFullname() {
-        return Fullname;
+        return fullname;
     }
 
     public void setFullname(String fullname) {
-        Fullname = fullname;
+        this.fullname = fullname;
     }
 
     public Date getDoB() {
-        return DoB;
+        return doB;
     }
 
     public void setDoB(Date doB) {
-        DoB = doB;
+        this.doB = doB;
     }
 
     public int getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(int gender) {
-        Gender = gender;
+        this.gender = gender;
     }
 }

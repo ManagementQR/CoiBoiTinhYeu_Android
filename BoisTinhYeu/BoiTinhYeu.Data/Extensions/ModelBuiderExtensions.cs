@@ -10,13 +10,16 @@ namespace BoiTinhYeu.Data.Extensions
     {
         public static void Seed(this ModelBuilder modelBuider)
         {
+            var d = new DateTime(2001, 02, 06);
             modelBuider.Entity<User>().HasData(
                 new User()
                 {
                     Username = "nhuy",
                     Password = "nhuy",
                     Fullname = "Nguyen Thi Nhu Y",
-                    Gender   = 0,
+                    Gender = 0,
+                    DoB = d.Date.ToString("d")
+
                 }
             );
 

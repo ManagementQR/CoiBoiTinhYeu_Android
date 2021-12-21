@@ -3,6 +3,7 @@ using BoiTinhYeu.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BoiTinhYeu.Application.UserService
 {
@@ -28,9 +29,9 @@ namespace BoiTinhYeu.Application.UserService
             return newUser;
         }
 
-        public User GetByUsername(string Username)
+        public User GetByUsername(string username)
         {
-            var user = _context.Users.Find(Username);
+            var user = _context.Users.Where(x => x.Username == username).FirstOrDefault();
             return user;
         }
     }

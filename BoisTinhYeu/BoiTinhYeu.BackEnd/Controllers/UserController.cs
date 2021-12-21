@@ -2,6 +2,7 @@
 using BoiTinhYeu.Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,14 @@ namespace BoiTinhYeu.BackEnd.Controllers
             _managerUserService = managerUserService;
         }
 
-        [HttpGet("{username}")]
-        public IActionResult getByUsername(string username)
+        [HttpGet]
+        public ActionResult getByUsername([FromQuery]string Username)
         {
-            var user = _managerUserService.GetByUsername(username);
-            if(user == null)
-            {
-                return BadRequest("Cannot find user");
-            }
+            var user = _managerUserService.GetByUsername(Username);
+            //if(user == null)
+            //{
+            //    return BadRequest("Cannot find user");
+            //}
             return Ok(user);
         }
 

@@ -14,8 +14,8 @@ namespace BoiTinhYeu.Data.Configuration
             builder.ToTable("Histories");
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.User).WithMany(x => x.Histories).HasForeignKey(x => x.Username);
-            builder.HasOne(x => x.Category).WithMany(x => x.Histories).HasForeignKey(x => x.CategoryId);
+            //builder.HasOne(x => x.User).WithMany(x => x.Histories).HasForeignKey(x => x.Username);
+            //builder.HasOne(x => x.Category).WithMany(x => x.Histories).HasForeignKey(x => x.CategoryId);
         }
     }
 }

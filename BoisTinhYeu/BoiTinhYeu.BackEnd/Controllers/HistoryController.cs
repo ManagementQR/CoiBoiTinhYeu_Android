@@ -26,7 +26,7 @@ namespace BoiTinhYeu.BackEnd.Controllers
         }
 
         [HttpPost]
-        public IActionResult create(History history)
+        public IActionResult create([FromForm]History history)
         {
             var newHistory = _managerHistoryService.create(history);
             return Ok(newHistory);

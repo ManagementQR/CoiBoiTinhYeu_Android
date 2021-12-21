@@ -1,0 +1,12 @@
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\bin\Release\netcoreapp3.1\BoiTinhYeu.Data.deps.json
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\bin\Release\netcoreapp3.1\BoiTinhYeu.Data.runtimeconfig.json
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\bin\Release\netcoreapp3.1\BoiTinhYeu.Data.runtimeconfig.dev.json
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\bin\Release\netcoreapp3.1\BoiTinhYeu.Data.dll
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\bin\Release\netcoreapp3.1\BoiTinhYeu.Data.pdb
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.csprojAssemblyReference.cache
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.AssemblyInfoInputs.cache
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.AssemblyInfo.cs
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.csproj.CoreCompileInputs.cache
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.dll
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.pdb
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Release\netcoreapp3.1\BoiTinhYeu.Data.genruntimeconfig.cache
