@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "BoiTinhYeuDatabase": "Server=NHUY;Database=boitinhyeu;Trusted_Connection=True;"
+  }
+}
