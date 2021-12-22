@@ -224,7 +224,7 @@
                     android:layout_margin="8dp"
                     android:contentDescription="@string/app_name"
                     android:padding="8dp"
-                    app:srcCompat="@drawable/img_history" />
+                    app:srcCompat="@drawable/img_history_yellow" />
 
                 <TextView
                     android:layout_width="match_parent"
