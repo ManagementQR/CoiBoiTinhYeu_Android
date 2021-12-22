@@ -13,6 +13,12 @@
         android:theme="@style/Theme.CoiBoiTinhYeu"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".history_love"
+            android:exported="false" />
+        <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
             android:name=".percent"
             android:exported="true" />
         <activity

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/et_circle_5"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Tên của bạn"
+            android:fontFamily="@font/googlesans_regular"
+            android:textSize="16sp"
+            android:textColor="@color/pinkText"/>
+
+        <TextView
+            android:id="@+id/history_myName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/googlesans_bold"
+            android:textSize="16sp"
+            android:textColor="@color/pinkText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Tên người yêu bạn"
+            android:fontFamily="@font/googlesans_regular"
+            android:textSize="16sp"
+            android:textColor="@color/pinkText"/>
+
+        <TextView
+            android:id="@+id/history_yourName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/googlesans_bold"
+            android:textSize="16sp"
+            android:textColor="@color/pinkText"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Kết quả"
+            android:fontFamily="@font/googlesans_regular"
+            android:textSize="16sp"
+            android:textColor="@color/pinkText"/>
+
+        <TextView
+            android:id="@+id/history_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/googlesans_bold"
+            android:textSize="16sp"
+            android:textColor="@color/pinkText"/>
+    </LinearLayout>
+
+</LinearLayout>

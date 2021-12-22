@@ -9,14 +9,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class home extends AppCompatActivity {
 
     private LinearLayout lnlDivinationName;
     private LinearLayout lnlDivinationDoB;
-    private LinearLayout LnlDivinationZodiac;
+    private LinearLayout lnlProfile;
+    private LinearLayout lnlHistory;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -32,7 +32,8 @@ public class home extends AppCompatActivity {
         // mapping
         lnlDivinationName = (LinearLayout) findViewById(R.id.home_BoiTen);
         lnlDivinationDoB = (LinearLayout)findViewById(R.id.home_BoiNgaySinh);
-        LnlDivinationZodiac = (LinearLayout) findViewById(R.id.home_BoiCungHoangDao);
+        lnlProfile = (LinearLayout) findViewById(R.id.home_profile);
+        lnlHistory = (LinearLayout) findViewById(R.id.home_history);
 
         // move to divination name
         lnlDivinationName.setOnClickListener(new View.OnClickListener() {
@@ -50,15 +51,22 @@ public class home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // move to divination zodiac
-        LnlDivinationZodiac.setOnClickListener(new View.OnClickListener() {
+        // move to profile
+        lnlProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home.this, divination_zodiac.class);
+                Intent intent = new Intent(home.this, profile.class);
                 startActivity(intent);
             }
         });
-
+        // move to love history
+        lnlHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, history_love.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
