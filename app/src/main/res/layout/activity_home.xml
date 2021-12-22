@@ -158,7 +158,7 @@
                     android:layout_margin="8dp"
                     android:contentDescription="@string/app_name"
                     android:padding="8dp"
-                    app:srcCompat="@drawable/love2" />
+                    app:srcCompat="@drawable/love4" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -172,7 +172,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/home_BoiCungHoangDao"
+                android:id="@+id/home_profile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toStartOf="@+id/home_BoiNgaySinh"
@@ -191,13 +191,13 @@
                     android:layout_margin="8dp"
                     android:contentDescription="@string/app_name"
                     android:padding="8dp"
-                    app:srcCompat="@drawable/love1" />
+                    app:srcCompat="@drawable/img_profile" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Bói Cung HĐ"
+                    android:text="Trang Cá Nhân"
                     android:textColor="@color/pinkStatusBar"
                     android:fontFamily="@font/googlesans_bold"
                     android:textSize="20sp"/>
@@ -224,7 +224,7 @@
                     android:layout_margin="8dp"
                     android:contentDescription="@string/app_name"
                     android:padding="8dp"
-                    app:srcCompat="@drawable/love4" />
+                    app:srcCompat="@drawable/img_history" />
 
                 <TextView
                     android:layout_width="match_parent"

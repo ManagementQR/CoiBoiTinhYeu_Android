@@ -51,8 +51,8 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             app:shapeAppearanceOverlay="@style/Button4"
-            app:hintTextColor="#4E4A4A"
-            app:boxStrokeColor="#4E4A4A"
+            app:hintTextColor="@color/pinkStatusBar"
+            app:boxStrokeColor="@color/pinkStatusBar"
             app:boxStrokeWidth="1dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
@@ -63,14 +63,14 @@
                 android:id="@+id/divinationName_myName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_edit_24"
                 android:ems="10"
                 android:inputType="textPersonName|textEmailAddress"
-                android:textColor="@color/pinkStatusBar"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
-                android:drawableRight="@drawable/ic_edit_24"/>
+                android:textColor="@color/pinkStatusBar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -81,8 +81,8 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             app:shapeAppearanceOverlay="@style/Button4"
-            app:hintTextColor="#4E4A4A"
-            app:boxStrokeColor="#4E4A4A"
+            app:hintTextColor="@color/pinkStatusBar"
+            app:boxStrokeColor="@color/pinkStatusBar"
             app:boxStrokeWidth="1dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
