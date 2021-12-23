@@ -17,8 +17,8 @@ namespace BoiTinhYeu.Application.HistoryService
         public History create(History history)
         {
             var newHistory = new History() {
-                CategoryId = history.CategoryId,
                 Username = history.Username,
+                Fullname = history.Fullname,
                 infor = history.infor,
                 result = history.result
             };

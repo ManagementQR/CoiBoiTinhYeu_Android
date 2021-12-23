@@ -77,4 +77,3 @@ D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.BackEnd
 D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.BackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.BackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.BackEnd\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.BackEnd\obj\Debug\netcoreapp3.1\BoiTinhYeu.BackEnd.MvcApplicationPartsAssemblyInfo.cs

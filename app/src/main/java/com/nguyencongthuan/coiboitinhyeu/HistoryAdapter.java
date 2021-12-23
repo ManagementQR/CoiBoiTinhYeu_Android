@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.nguyencongthuan.coiboitinhyeu.Model.History;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +17,9 @@ public class HistoryAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<Attribute_history> historyList;
+    private List<History> historyList;
 
-    public HistoryAdapter(Context context, int layout, List<Attribute_history> historyList) {
+    public HistoryAdapter(Context context, int layout, List<History> historyList) {
         this.context = context;
         this.layout = layout;
         this.historyList = historyList;
@@ -51,11 +53,11 @@ public class HistoryAdapter extends BaseAdapter {
         TextView txtResult = (TextView) convertView.findViewById(R.id.history_result);
 
         // set value
-        Attribute_history attribute_history = historyList.get(position);
+        History history = historyList.get(position);
 
-        txtMyName.setText(attribute_history.getMyName());
-        txtYourName.setText(attribute_history.getYourName());
-        txtResult.setText(attribute_history.getResult());
+        txtMyName.setText(history.getFullname());
+        txtYourName.setText(history.getInfor());
+        txtResult.setText(history.getResult());
 
         return convertView;
     }

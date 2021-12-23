@@ -10,6 +10,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.nguyencongthuan.coiboitinhyeu.Model.User;
+
+import java.io.Serializable;
 
 public class home extends AppCompatActivity {
 
@@ -17,7 +23,7 @@ public class home extends AppCompatActivity {
     private LinearLayout lnlDivinationDoB;
     private LinearLayout lnlProfile;
     private LinearLayout lnlHistory;
-
+    private TextView txthome_userName;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +35,33 @@ public class home extends AppCompatActivity {
         // set status bar
         setColorStatusBar();
 
+        //get Intent
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
+
+
         // mapping
         lnlDivinationName = (LinearLayout) findViewById(R.id.home_BoiTen);
         lnlDivinationDoB = (LinearLayout)findViewById(R.id.home_BoiNgaySinh);
         lnlProfile = (LinearLayout) findViewById(R.id.home_profile);
         lnlHistory = (LinearLayout) findViewById(R.id.home_history);
+        txthome_userName = findViewById(R.id.home_userName);
+
+        if(user != null){
+            txthome_userName.setText(user.getFullname());
+        }
+
+
 
         // move to divination name
         lnlDivinationName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(home.this, divination_name.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
                 startActivity(intent);
             }
         });
@@ -48,6 +70,9 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, divination_date_of_birth.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
                 startActivity(intent);
             }
         });
@@ -55,16 +80,29 @@ public class home extends AppCompatActivity {
         lnlProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home.this, profile.class);
-                startActivity(intent);
+                if(user!=null){
+                    Intent intent = new Intent(home.this, profile.class);
+                    intent.putExtra("user", (Serializable) user);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(home.this, "dn", Toast.LENGTH_SHORT).show();
+                }
+                
             }
         });
         // move to love history
         lnlHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home.this, history_love.class);
-                startActivity(intent);
+                if(user!=null){
+                    Intent intent = new Intent(home.this, history_love.class);
+                    intent.putExtra("user", (Serializable) user);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(home.this, "dn", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

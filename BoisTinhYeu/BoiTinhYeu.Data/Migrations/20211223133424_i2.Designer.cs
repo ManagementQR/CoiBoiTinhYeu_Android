@@ -3,14 +3,16 @@ using BoiTinhYeu.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BoiTinhYeu.Data.Migrations
 {
     [DbContext(typeof(BoiTinhYeuDbContext))]
-    partial class BoiTinhYeuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211223133424_i2")]
+    partial class i2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,13 +42,7 @@ namespace BoiTinhYeu.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Fullname")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username1")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("infor")
@@ -57,7 +53,7 @@ namespace BoiTinhYeu.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Username1");
+                    b.HasIndex("Username");
 
                     b.ToTable("Histories");
                 });
@@ -96,9 +92,9 @@ namespace BoiTinhYeu.Data.Migrations
 
             modelBuilder.Entity("BoiTinhYeu.Data.Entities.History", b =>
                 {
-                    b.HasOne("BoiTinhYeu.Data.Entities.User", null)
+                    b.HasOne("BoiTinhYeu.Data.Entities.User", "User")
                         .WithMany("Histories")
-                        .HasForeignKey("Username1");
+                        .HasForeignKey("Username");
                 });
 #pragma warning restore 612, 618
         }

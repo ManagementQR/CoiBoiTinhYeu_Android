@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,15 +17,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-
-
+import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
+import com.nguyencongthuan.coiboitinhyeu.Model.History;
+import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
 
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class divination_name extends AppCompatActivity {
 
@@ -37,6 +44,7 @@ public class divination_name extends AppCompatActivity {
     private int current;
     private Handler handler;
     private AtomicBoolean isrunning = new AtomicBoolean(false);
+    private History history;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -50,6 +58,10 @@ public class divination_name extends AppCompatActivity {
         actionBar.hide();
         // set status bar
         setColorStatusBar();
+
+        //get intent
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
 
         myName = findViewById(R.id.divinationName_myName);
         yourName = findViewById(R.id.divinationName_yourName);
@@ -122,6 +134,13 @@ public class divination_name extends AppCompatActivity {
 
                     process(percent);
                     doStart(percent);
+
+                    //insert history
+                    if(user != null){
+                        history = new History(user.getUsername(),m,y,percent+"%");
+                        createHistory(history);
+                    }
+
 
                 }
                 else{
@@ -210,6 +229,22 @@ public class divination_name extends AppCompatActivity {
         });
         isrunning.set(true);
         thread.start();
+    }
+    
+    public void createHistory(History history){
+        ApiService.apiService.createHistory(history).enqueue(new Callback<History>() {
+            @Override
+            public void onResponse(Call<History> call, Response<History> response) {
+                if(response.isSuccessful()){
+                    //Toast.makeText(divination_name.this, "tc", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<History> call, Throwable t) {
+                Toast.makeText(divination_name.this, "loi", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

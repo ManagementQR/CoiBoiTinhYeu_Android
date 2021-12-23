@@ -23,23 +23,23 @@ namespace BoiTinhYeu.Data.Extensions
                 }
             );
 
-            modelBuider.Entity<Category>().HasData(
-                new Category()
-                {
-                    Id = 1,
-                    Name = "Bói tên",
-                },
-                new Category()
-                {
-                    Id = 2,
-                    Name = "Bói ngày sinh",
-                },
-                new Category()
-                {
-                    Id = 3,
-                    Name = "Bói cung hoàng đạo",
-                }
-            );
+            //modelBuider.Entity<Category>().HasData(
+            //    new Category()
+            //    {
+            //        Id = 1,
+            //        Name = "Bói tên",
+            //    },
+            //    new Category()
+            //    {
+            //        Id = 2,
+            //        Name = "Bói ngày sinh",
+            //    },
+            //    new Category()
+            //    {
+            //        Id = 3,
+            //        Name = "Bói cung hoàng đạo",
+            //    }
+            //);
         }
     }
 }

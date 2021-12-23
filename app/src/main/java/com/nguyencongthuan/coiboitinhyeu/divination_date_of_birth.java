@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,8 +13,16 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
+import com.nguyencongthuan.coiboitinhyeu.Model.History;
+import com.nguyencongthuan.coiboitinhyeu.Model.User;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class divination_date_of_birth extends AppCompatActivity {
 
@@ -24,6 +33,7 @@ public class divination_date_of_birth extends AppCompatActivity {
     private String txtMyDob, txtYourDob;
     private TextView txtResult;
     private long soMyDob, soYourDob;
+    private History history;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -40,6 +50,10 @@ public class divination_date_of_birth extends AppCompatActivity {
         // mapping
         etMyDoB = (TextInputEditText) findViewById(R.id.divinationDoB_myDoB);
         etYourDoB = (TextInputEditText)findViewById(R.id.divinationDoB_yourDoB);
+
+        //get intent
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
 
         // init object
         DatePicker datePicker = new DatePicker();
@@ -140,6 +154,12 @@ public class divination_date_of_birth extends AppCompatActivity {
                         rs = "Bình thường";
 
                     txtResult.setText(rs);
+
+                    //insert history
+                    if(user != null){
+                        history = new History(user.getUsername(),soMyDob+"",soYourDob+"",rs);
+                        createHistory(history);
+                    }
                 }
                 else{
                     if(txtMyDob.length()==0){
@@ -170,5 +190,21 @@ public class divination_date_of_birth extends AppCompatActivity {
             }
         }
         return tong;
+    }
+
+    public void createHistory(History history){
+        ApiService.apiService.createHistory(history).enqueue(new Callback<History>() {
+            @Override
+            public void onResponse(Call<History> call, Response<History> response) {
+                if(response.isSuccessful()){
+                    //Toast.makeText(divination_date_of_birth.this, "tc", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<History> call, Throwable t) {
+                Toast.makeText(divination_date_of_birth.this, "loi", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

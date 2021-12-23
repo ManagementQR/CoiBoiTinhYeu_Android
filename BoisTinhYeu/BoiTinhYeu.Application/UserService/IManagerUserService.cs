@@ -9,5 +9,7 @@ namespace BoiTinhYeu.Application.UserService
     {
         User GetByUsername(string Username);
         User Create(User user);
+
+        User Update(User user);
     }
 }

@@ -21,6 +21,8 @@ import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
 import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
 
+import java.io.Serializable;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -130,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                             if(user!=null){
                                 if(password.equals(user.getPassword())){
                                     Intent intent = new Intent(MainActivity.this, home.class);
+
+                                    intent.putExtra("user", (Serializable) user);
                                     startActivity(intent);
                                 }
                                 else{
