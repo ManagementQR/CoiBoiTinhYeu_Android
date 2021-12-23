@@ -10,15 +10,17 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.google.android.material.textfield.TextInputEditText;
 
 
-import com.google.android.material.textfield.TextInputLayout;
+
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,6 +38,7 @@ public class divination_name extends AppCompatActivity {
     private Handler handler;
     private AtomicBoolean isrunning = new AtomicBoolean(false);
 
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +54,52 @@ public class divination_name extends AppCompatActivity {
         myName = findViewById(R.id.divinationName_myName);
         yourName = findViewById(R.id.divinationName_yourName);
 
+        myName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()==0){
+                    myName.setError("Không được để trống");
+                }
+                else{
+                    myName.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        yourName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()==0){
+                    yourName.setError("Không được để trống");
+                }
+                else{
+                    yourName.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         progressBar = findViewById(R.id.ProgressBar);
 
 
-//
 
         btnCheckName = findViewById(R.id.btnCheckName);
         txtResult = findViewById(R.id.result);
@@ -63,19 +108,31 @@ public class divination_name extends AppCompatActivity {
             public void onClick(View v) {
                 String m = String.valueOf(myName.getText());
                 String y = String.valueOf(yourName.getText());
-                strName =  m + "loves" + y;
+                if(m.length()!=0&&y.length()!=0){
+                    strName =  m + "loves" + y;
 
-                count_l = soKiTu(strName,"l");
-                count_o = soKiTu(strName,"o");
-                count_v = soKiTu(strName,"v");
-                count_e = soKiTu(strName,"e");
-                count_s = soKiTu(strName,"s");
+                    count_l = soKiTu(strName,"l");
+                    count_o = soKiTu(strName,"o");
+                    count_v = soKiTu(strName,"v");
+                    count_e = soKiTu(strName,"e");
+                    count_s = soKiTu(strName,"s");
 
-                strSo = ""+count_l + count_o + count_v + count_e + count_s;
-                percent = Percent(strSo);
+                    strSo = ""+count_l + count_o + count_v + count_e + count_s;
+                    percent = Percent(strSo);
 
-                process(percent);
-                doStart(percent);
+                    process(percent);
+                    doStart(percent);
+
+                }
+                else{
+                    if(m.length()==0){
+                        myName.setError("Không được để trống");
+                    }
+                    else{
+                        yourName.setError("Không được để trống");
+                    }
+                }
+
 
             }
         });

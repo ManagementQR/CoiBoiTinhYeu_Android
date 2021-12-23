@@ -7,6 +7,8 @@ import androidx.core.content.ContextCompat;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,6 +60,50 @@ public class divination_date_of_birth extends AppCompatActivity {
 
         myDob = findViewById(R.id.divinationDoB_myDoB);
         yourDob = findViewById(R.id.divinationDoB_yourDoB);
+
+        myDob.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()==0){
+                    myDob.setError("Không được để trống");
+                }
+                else{
+                    myDob.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        yourDob.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()==0){
+                    yourDob.setError("Không được để trống");
+                }
+                else{
+                    yourDob.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         btnCheckName = findViewById(R.id.btnCheckName);
         txtResult = findViewById(R.id.result);
         btnCheckName.setOnClickListener(new View.OnClickListener() {
@@ -65,33 +111,45 @@ public class divination_date_of_birth extends AppCompatActivity {
             public void onClick(View v) {
                 txtMyDob = String.valueOf(myDob.getText());
                 txtYourDob = String.valueOf(yourDob.getText());
-                soMyDob = Integer.parseInt(txtMyDob.replace("/",""));
-                soYourDob = Integer.parseInt(txtYourDob.replace("/",""));
 
-                long percent = Percent(soMyDob+soYourDob);
-                String rs = "";
-                if(percent==10)
-                    rs = "Tình bạn";
-                if(percent==11)
-                    rs = "Thầm lặng";
-                if(percent==12)
-                    rs = "Bạn bè";
-                if(percent==13)
-                    rs = "Có cảm tình";
-                if(percent==14)
-                    rs = "Tình yêu";
-                if(percent==15)
-                    rs = "Đơn phương";
-                if(percent==16)
-                    rs = "Ghét";
-                if(percent==17)
-                    rs = "Chờ đợi";
-                if(percent==18)
-                    rs = "Vợ chồng";
-                if(percent==19)
-                    rs = "Bình thường";
+                if(txtMyDob.length()!=0 && txtYourDob.length()!=0){
+                    soMyDob = Integer.parseInt(txtMyDob.replace("/",""));
+                    soYourDob = Integer.parseInt(txtYourDob.replace("/",""));
 
-                txtResult.setText(rs);
+                    long percent = Percent(soMyDob+soYourDob);
+                    String rs = "";
+                    if(percent==10)
+                        rs = "Tình bạn";
+                    if(percent==11)
+                        rs = "Thầm lặng";
+                    if(percent==12)
+                        rs = "Bạn bè";
+                    if(percent==13)
+                        rs = "Có cảm tình";
+                    if(percent==14)
+                        rs = "Tình yêu";
+                    if(percent==15)
+                        rs = "Đơn phương";
+                    if(percent==16)
+                        rs = "Ghét";
+                    if(percent==17)
+                        rs = "Chờ đợi";
+                    if(percent==18)
+                        rs = "Vợ chồng";
+                    if(percent==19)
+                        rs = "Bình thường";
+
+                    txtResult.setText(rs);
+                }
+                else{
+                    if(txtMyDob.length()==0){
+                        myDob.setError("Không được để trống");
+                    }
+                    else{
+                        yourDob.setError("Không được để trống");
+                    }
+                }
+
             }
         });
 

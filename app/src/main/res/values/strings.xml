@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CoiBoiTinhYeu</string>
     <string name="log_in">Đăng Nhập</string>
+    <string name="required">Không được để trống</string>
 
     <string-array name="spinnerGender">
         <item>Chọn giới tính</item>
