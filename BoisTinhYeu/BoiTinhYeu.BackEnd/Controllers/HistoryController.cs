@@ -18,15 +18,15 @@ namespace BoiTinhYeu.BackEnd.Controllers
         {
             _managerHistoryService = managerHistoryService;
         }
-        [HttpGet("{username}")]
-        public IActionResult getByUserName(string username)
+        [HttpGet()]
+        public IActionResult getByUserName([FromQuery]string username)
         {
             var histories = _managerHistoryService.getByUsername(username);
             return Ok(histories);
         }
 
         [HttpPost]
-        public IActionResult create([FromForm]History history)
+        public IActionResult create([FromBody]History history)
         {
             var newHistory = _managerHistoryService.create(history);
             return Ok(newHistory);

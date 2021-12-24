@@ -23,6 +23,7 @@
         android:background="@color/trans"/>
 
     <Spinner
+        android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
@@ -38,6 +39,7 @@
         android:entries="@array/spinnerGender"/>
 
     <Button
+        android:id="@+id/submitGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

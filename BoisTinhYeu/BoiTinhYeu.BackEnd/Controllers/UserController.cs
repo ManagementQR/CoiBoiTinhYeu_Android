@@ -37,5 +37,13 @@ namespace BoiTinhYeu.BackEnd.Controllers
             var newUser = _managerUserService.Create(user);
             return Ok(newUser);
         }
+
+        [HttpPatch]
+        public IActionResult update([FromBody]User user)
+        {
+            var newUser = _managerUserService.Update(user);
+            return Ok(newUser);
+        }
+
     }
 }

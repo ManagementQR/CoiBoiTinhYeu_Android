@@ -34,5 +34,17 @@ namespace BoiTinhYeu.Application.UserService
             var user = _context.Users.Where(x => x.Username == username).FirstOrDefault();
             return user;
         }
+
+        public User Update(User user)
+        {
+            var olduser = _context.Users.Find(user.Username);
+            olduser.Fullname = user.Fullname;
+            olduser.Gender = user.Gender;
+            olduser.DoB = user.DoB;
+            olduser.Password = user.Password;
+            _context.Users.Update(olduser);
+            _context.SaveChanges();
+            return olduser;
+        }
     }
 }

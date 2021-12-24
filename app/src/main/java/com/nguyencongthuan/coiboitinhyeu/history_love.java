@@ -3,20 +3,35 @@ package com.nguyencongthuan.coiboitinhyeu;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
+
+import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
+import com.nguyencongthuan.coiboitinhyeu.Model.History;
+import com.nguyencongthuan.coiboitinhyeu.Model.User;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class history_love extends AppCompatActivity {
 
     private ListView lvHistory;
-    private ArrayList<Attribute_history> arrayHistory;
+    private ArrayList<History> arrayHistory;
     private HistoryAdapter adapter;
+    private Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -34,9 +49,26 @@ public class history_love extends AppCompatActivity {
         // data mapping
         dataMapping();
 
+        //get intent
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
+
         // add to listview and save data to arraylist
-        adapter = new HistoryAdapter(history_love.this,R.layout.row_history,arrayHistory);
-        lvHistory.setAdapter(adapter);
+        callApiGetHistory(user.getUsername());
+
+        //trở về trang home
+        toolbar = findViewById(R.id.history_toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(history_love.this,home.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
+                startActivity(intent);
+            }
+        });
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -46,11 +78,30 @@ public class history_love extends AppCompatActivity {
 
     private void dataMapping(){
         lvHistory = (ListView) findViewById(R.id.history_listview);
-        arrayHistory = new ArrayList<Attribute_history>();
+        arrayHistory = new ArrayList<History>();
+    }
 
-        arrayHistory.add(new Attribute_history("Thuận Nguyễn","Bánh Kem",  "100%"));
-        arrayHistory.add(new Attribute_history("Thịnh Nguyễn","Bánh Ngọt",  "90%"));
-        arrayHistory.add(new Attribute_history("Huy Nguyễn","Bánh Mỳ",  "80%"));
-        arrayHistory.add(new Attribute_history("Chương Nguyễn","Bánh Trái Cây",  "53%"));
+    private void callApiGetHistory(String username) {
+        ApiService.apiService.getHistory(username).enqueue(new Callback<ArrayList<History>>() {
+            @Override
+            public void onResponse(Call<ArrayList<History>> call, Response<ArrayList<History>> response) {
+                arrayHistory = response.body();
+                if(arrayHistory!=null){
+                    Toast.makeText(history_love.this, "tc", Toast.LENGTH_SHORT).show();
+                    adapter = new HistoryAdapter(history_love.this,R.layout.row_history,arrayHistory);
+                    lvHistory.setAdapter(adapter);
+                }
+                else{
+                    Toast.makeText(history_love.this, "null", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<History>> call, Throwable t) {
+                Toast.makeText(history_love.this, "loi", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

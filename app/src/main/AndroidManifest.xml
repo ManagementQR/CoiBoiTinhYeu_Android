@@ -19,9 +19,6 @@
             android:name=".profile"
             android:exported="false" />
         <activity
-            android:name=".percent"
-            android:exported="true" />
-        <activity
             android:name=".divination_zodiac"
             android:exported="false" />
         <activity

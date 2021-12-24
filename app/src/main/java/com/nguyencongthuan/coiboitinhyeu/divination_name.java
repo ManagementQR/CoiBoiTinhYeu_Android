@@ -3,26 +3,37 @@ package com.nguyencongthuan.coiboitinhyeu;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.material.textfield.TextInputEditText;
+import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
+import com.nguyencongthuan.coiboitinhyeu.Model.History;
+import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
 
-import com.google.android.material.textfield.TextInputLayout;
-
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class divination_name extends AppCompatActivity {
 
@@ -35,6 +46,9 @@ public class divination_name extends AppCompatActivity {
     private int current;
     private Handler handler;
     private AtomicBoolean isrunning = new AtomicBoolean(false);
+    private History history;
+    private Toolbar toolbar;
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -48,13 +62,59 @@ public class divination_name extends AppCompatActivity {
         // set status bar
         setColorStatusBar();
 
+        //get intent
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
+
         myName = findViewById(R.id.divinationName_myName);
         yourName = findViewById(R.id.divinationName_yourName);
 
+        myName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()==0){
+                    myName.setError("Không được để trống");
+                }
+                else{
+                    myName.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        yourName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(s.length()==0){
+                    yourName.setError("Không được để trống");
+                }
+                else{
+                    yourName.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         progressBar = findViewById(R.id.ProgressBar);
 
 
-//
 
         btnCheckName = findViewById(R.id.btnCheckName);
         txtResult = findViewById(R.id.result);
@@ -63,19 +123,38 @@ public class divination_name extends AppCompatActivity {
             public void onClick(View v) {
                 String m = String.valueOf(myName.getText());
                 String y = String.valueOf(yourName.getText());
-                strName =  m + "loves" + y;
+                if(m.length()!=0&&y.length()!=0){
+                    strName =  m + "loves" + y;
 
-                count_l = soKiTu(strName,"l");
-                count_o = soKiTu(strName,"o");
-                count_v = soKiTu(strName,"v");
-                count_e = soKiTu(strName,"e");
-                count_s = soKiTu(strName,"s");
+                    count_l = soKiTu(strName,"l");
+                    count_o = soKiTu(strName,"o");
+                    count_v = soKiTu(strName,"v");
+                    count_e = soKiTu(strName,"e");
+                    count_s = soKiTu(strName,"s");
 
-                strSo = ""+count_l + count_o + count_v + count_e + count_s;
-                percent = Percent(strSo);
+                    strSo = ""+count_l + count_o + count_v + count_e + count_s;
+                    percent = Percent(strSo);
 
-                process(percent);
-                doStart(percent);
+                    process(percent);
+                    doStart(percent);
+
+                    //insert history
+                    if(user != null){
+                        history = new History(user.getUsername(),m,y,percent+"%");
+                        createHistory(history);
+                    }
+
+
+                }
+                else{
+                    if(m.length()==0){
+                        myName.setError("Không được để trống");
+                    }
+                    else{
+                        yourName.setError("Không được để trống");
+                    }
+                }
+
 
             }
         });
@@ -88,6 +167,18 @@ public class divination_name extends AppCompatActivity {
         };
 
 
+        //trở về trang home
+        toolbar = findViewById(R.id.divinationName_toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(divination_name.this,home.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -153,6 +244,22 @@ public class divination_name extends AppCompatActivity {
         });
         isrunning.set(true);
         thread.start();
+    }
+    
+    public void createHistory(History history){
+        ApiService.apiService.createHistory(history).enqueue(new Callback<History>() {
+            @Override
+            public void onResponse(Call<History> call, Response<History> response) {
+                if(response.isSuccessful()){
+                    //Toast.makeText(divination_name.this, "tc", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<History> call, Throwable t) {
+                Toast.makeText(divination_name.this, "loi", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

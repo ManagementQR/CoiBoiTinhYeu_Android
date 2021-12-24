@@ -11,6 +11,6 @@ namespace BoiTinhYeu.Data.Entities
         public string Fullname { get; set; }
         public string DoB { get; set; }
         public int Gender { get; set; }
-        //public List<History> Histories { get; set; }
+        public List<History> Histories { get; set; }
     }
 }

@@ -1,22 +1,26 @@
 package com.nguyencongthuan.coiboitinhyeu.Model;
 
 
+import android.text.Editable;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
     private String username ;
     private String password ;
     private String fullname ;
-    private Date doB ;
+    private String doB ;
     private int gender ;
 
-    public User(String username, String password, String fullname, Date doB, int gender) {
+    public User(String username, String password, String fullname, String doB, int gender) {
         this.username = username;
         this.password = password;
         this.fullname = fullname;
         this.doB = doB;
         this.gender = gender;
     }
+
 
     public String getUsername() {
         return username;
@@ -42,11 +46,11 @@ public class User {
         this.fullname = fullname;
     }
 
-    public Date getDoB() {
+    public String getDoB() {
         return doB;
     }
 
-    public void setDoB(Date doB) {
+    public void setDoB(String doB) {
         this.doB = doB;
     }
 
