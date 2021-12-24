@@ -68,7 +68,6 @@ public class history_love extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

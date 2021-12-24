@@ -6178,19 +6178,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\84327\\.nuget\\packages\\": {}
+    "C:\\Users\\congt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.BackEnd\\BoiTinhYeu.BackEnd.csproj",
+      "projectUniqueName": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.BackEnd\\BoiTinhYeu.BackEnd.csproj",
       "projectName": "BoiTinhYeu.BackEnd",
-      "projectPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.BackEnd\\BoiTinhYeu.BackEnd.csproj",
-      "packagesPath": "C:\\Users\\84327\\.nuget\\packages\\",
-      "outputPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.BackEnd\\obj\\",
+      "projectPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.BackEnd\\BoiTinhYeu.BackEnd.csproj",
+      "packagesPath": "C:\\Users\\congt\\.nuget\\packages\\",
+      "outputPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\84327\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\congt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6204,11 +6204,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj": {
-              "projectPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj"
+            "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj": {
+              "projectPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj"
             },
-            "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj": {
-              "projectPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj"
+            "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj": {
+              "projectPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj"
             }
           }
         }
@@ -6246,7 +6246,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

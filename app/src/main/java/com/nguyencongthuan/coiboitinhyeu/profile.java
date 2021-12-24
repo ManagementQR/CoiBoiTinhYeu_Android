@@ -50,6 +50,7 @@ public class profile extends AppCompatActivity {
     private TextView profile_dateOfBirth;
     private User user;
     private Toolbar toolbar;
+    private Button btnDialogSuccessOk;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -92,9 +93,10 @@ public class profile extends AppCompatActivity {
             }
 
             //set ngày
-            String[] arrays = user.getDoB().split("-");
+            profile_dateOfBirth.setText(user.getDoB());
+            //String[] arrays = user.getDoB().split("-");
 
-            profile_dateOfBirth.setText(arrays[2]+"/"+arrays[1]+"/"+arrays[0]);
+            //profile_dateOfBirth.setText(arrays[2]+"/"+arrays[1]+"/"+arrays[0]);
         }
 
 
@@ -150,6 +152,7 @@ public class profile extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(profile.this,R.color.pinkStatusBar));
     }
 
+
     // open dialog
     public void openDialog(int gravity, int view){
         final Dialog dialog = new Dialog(this);
@@ -182,6 +185,17 @@ public class profile extends AppCompatActivity {
                     profile_fullname.setText(newName.getText());
                     user.setFullname(String.valueOf(newName.getText()));
                     callApoUpdate(user);
+                    dialog.dismiss();
+                }
+            });
+        }
+
+        // hide dialog success ok
+        if(view == R.layout.dialog_success){
+            Button submit = dialog.findViewById(R.id.dialog_success_ok);
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     dialog.dismiss();
                 }
             });
@@ -300,12 +314,14 @@ public class profile extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
                     //Toast.makeText(profile.this, "tc", Toast.LENGTH_SHORT).show();
+                    openDialog(Gravity.CENTER, R.layout.dialog_success);
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 //Toast.makeText(profile.this, "loi", Toast.LENGTH_SHORT).show();
+                openDialog(Gravity.CENTER, R.layout.dialog_success);
             }
         });
     }
