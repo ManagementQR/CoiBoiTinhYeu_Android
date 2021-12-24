@@ -3,18 +3,22 @@ package com.nguyencongthuan.coiboitinhyeu;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
 
 import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
 import com.nguyencongthuan.coiboitinhyeu.Model.History;
 import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +31,7 @@ public class history_love extends AppCompatActivity {
     private ListView lvHistory;
     private ArrayList<History> arrayHistory;
     private HistoryAdapter adapter;
+    private Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -50,6 +55,19 @@ public class history_love extends AppCompatActivity {
 
         // add to listview and save data to arraylist
         callApiGetHistory(user.getUsername());
+
+        //trở về trang home
+        toolbar = findViewById(R.id.history_toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(history_love.this,home.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
+                startActivity(intent);
+            }
+        });
 
     }
 

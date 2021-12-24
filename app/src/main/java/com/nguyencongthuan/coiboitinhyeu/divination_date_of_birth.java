@@ -3,6 +3,7 @@ package com.nguyencongthuan.coiboitinhyeu;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
@@ -15,10 +16,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
 import com.nguyencongthuan.coiboitinhyeu.Model.History;
 import com.nguyencongthuan.coiboitinhyeu.Model.User;
+
+import java.io.Serializable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +38,7 @@ public class divination_date_of_birth extends AppCompatActivity {
     private TextView txtResult;
     private long soMyDob, soYourDob;
     private History history;
+    private Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -50,6 +55,8 @@ public class divination_date_of_birth extends AppCompatActivity {
         // mapping
         etMyDoB = (TextInputEditText) findViewById(R.id.divinationDoB_myDoB);
         etYourDoB = (TextInputEditText)findViewById(R.id.divinationDoB_yourDoB);
+        toolbar = findViewById(R.id.divinationDoB_toolbar);
+
 
         //get intent
         Intent intent = getIntent();
@@ -118,6 +125,8 @@ public class divination_date_of_birth extends AppCompatActivity {
 
             }
         });
+
+        //kiểm tra kết quả
         btnCheckName = findViewById(R.id.btnCheckName);
         txtResult = findViewById(R.id.result);
         btnCheckName.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +182,17 @@ public class divination_date_of_birth extends AppCompatActivity {
             }
         });
 
+        //trở về trang home
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(divination_date_of_birth.this,home.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
+                startActivity(intent);
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

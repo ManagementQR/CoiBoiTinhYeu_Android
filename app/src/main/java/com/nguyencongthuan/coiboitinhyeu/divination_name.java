@@ -3,6 +3,7 @@ package com.nguyencongthuan.coiboitinhyeu;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
@@ -25,6 +26,7 @@ import com.nguyencongthuan.coiboitinhyeu.Model.History;
 import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
 
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -45,6 +47,7 @@ public class divination_name extends AppCompatActivity {
     private Handler handler;
     private AtomicBoolean isrunning = new AtomicBoolean(false);
     private History history;
+    private Toolbar toolbar;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -164,6 +167,18 @@ public class divination_name extends AppCompatActivity {
         };
 
 
+        //trở về trang home
+        toolbar = findViewById(R.id.divinationName_toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(divination_name.this,home.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
+                startActivity(intent);
+            }
+        });
 
     }
 

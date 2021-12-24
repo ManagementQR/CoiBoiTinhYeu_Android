@@ -5,10 +5,17 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -86,7 +93,7 @@ public class home extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(home.this, "dn", Toast.LENGTH_SHORT).show();
+                    openDialog(Gravity.CENTER);
                 }
                 
             }
@@ -101,7 +108,7 @@ public class home extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(home.this, "dn", Toast.LENGTH_SHORT).show();
+                    openDialog(Gravity.CENTER);
                 }
             }
         });
@@ -110,5 +117,49 @@ public class home extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setColorStatusBar() {
         getWindow().setStatusBarColor(ContextCompat.getColor(home.this,R.color.pinkStatusBar));
+    }
+
+    // open dialog
+    public void openDialog(int gravity){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_notify);
+
+        Window window = dialog.getWindow();
+        if(window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity = gravity;
+        window.setAttributes(windowAttributes);
+        // if click outside area, dialog will hide
+        if(Gravity.CENTER == gravity){
+            dialog.setCancelable(true);
+        } else{
+            dialog.setCancelable(false);
+        }
+
+        Button btnCancel = dialog.findViewById(R.id.cancel);
+        Button btnSubmit = dialog.findViewById(R.id.submit);
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home.this, MainActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }

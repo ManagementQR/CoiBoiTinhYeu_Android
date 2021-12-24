@@ -3,6 +3,7 @@ package com.nguyencongthuan.coiboitinhyeu;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import android.app.Dialog;
@@ -28,6 +29,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
 import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -47,6 +49,7 @@ public class profile extends AppCompatActivity {
     private TextView profile_gender;
     private TextView profile_dateOfBirth;
     private User user;
+    private Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -128,6 +131,18 @@ public class profile extends AppCompatActivity {
             }
         });
 
+        //trở về trang home
+        toolbar = findViewById(R.id.profile_toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(profile.this,home.class);
+                if(user != null){
+                    intent.putExtra("user", (Serializable) user);
+                }
+                startActivity(intent);
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
