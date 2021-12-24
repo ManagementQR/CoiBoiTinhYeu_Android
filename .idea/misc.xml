@@ -34,25 +34,36 @@
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/bg_white_corner_20.xml" value="0.1388888888888889" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/et_circle_15.xml" value="0.1388888888888889" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/et_circle_5.xml" value="0.13425925925925927" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/heart.xml" value="0.17604166666666668" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_calendar_24.xml" value="0.1388888888888889" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_camera_24.xml" value="0.14722222222222223" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_clear_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_date_range_24.xml" value="0.1388888888888889" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_date_range_light_24.xml" value="0.13425925925925927" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_date_range_pink_24.xml" value="0.13425925925925927" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_edit_24.xml" value="0.1388888888888889" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_person_24.xml" value="0.19166666666666668" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/ic_trash_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/img_circle.xml" value="0.14722222222222223" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/drawable/switch_tumbs_10.xml" value="0.19166666666666668" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_dialog_change_dob.xml" value="0.15925925925925927" />
-        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_divination_date_of_birth.xml" value="0.15925925925925927" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_dialog_success.xml" value="0.17222222222222222" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_divination_date_of_birth.xml" value="0.14666666666666667" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_divination_name.xml" value="0.22" />
-        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_history_love.xml" value="0.16666666666666666" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_divination_zodiac.xml" value="0.17552083333333332" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_history_love.xml" value="0.12" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_home.xml" value="0.17552083333333332" />
-        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_main.xml" value="0.15989583333333332" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_profile.xml" value="0.22" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_change_dob.xml" value="0.15925925925925927" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_change_fullname.xml" value="0.15925925925925927" />
         <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_change_gender.xml" value="0.14666666666666667" />
-        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_change_password.xml" value="0.15925925925925927" />
-        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/row_history.xml" value="0.22" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_change_password.xml" value="0.22" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_notify.xml" value="0.16666666666666666" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/dialog_success.xml" value="0.16666666666666666" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/row_history.xml" value="0.2755102040816326" />
+        <entry key="..\:/Git/BoiTinhYeu/app/src/main/res/layout/row_history_date.xml" value="0.4108695652173913" />
         <entry key="..\:/Nam3_Ki1/ThucHanhAndroid/CoiBoiTinhYeu_Android/app/src/main/res/drawable/et_circle_15.xml" value="0.2703125" />
         <entry key="..\:/Nam3_Ki1/ThucHanhAndroid/CoiBoiTinhYeu_Android/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.26615384615384613" />
         <entry key="..\:/Nam3_Ki1/ThucHanhAndroid/CoiBoiTinhYeu_Android/app/src/main/res/drawable/ic_baseline_favorite_24_red.xml" value="0.14791666666666667" />

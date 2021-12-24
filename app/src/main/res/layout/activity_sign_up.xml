@@ -215,6 +215,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:inputType="textPersonName|textEmailAddress"
                         android:id="@+id/signup_dateOfBirth"
+                        android:focusable="false"
                         android:ems="10"
                         android:textSize="13sp"
                         android:textColor="@color/black"

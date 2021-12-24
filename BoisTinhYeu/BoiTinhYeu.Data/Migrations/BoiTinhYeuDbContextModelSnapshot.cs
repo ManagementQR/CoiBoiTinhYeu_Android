@@ -87,7 +87,7 @@ namespace BoiTinhYeu.Data.Migrations
                         new
                         {
                             Username = "nhuy",
-                            DoB = "2001-02-06",
+                            DoB = "06/02/2001",
                             Fullname = "Nguyen Thi Nhu Y",
                             Gender = 0,
                             Password = "nhuy"

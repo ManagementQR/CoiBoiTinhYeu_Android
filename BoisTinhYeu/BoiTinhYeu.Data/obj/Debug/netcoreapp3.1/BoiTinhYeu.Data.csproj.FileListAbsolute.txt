@@ -9,3 +9,16 @@ D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\ob
 D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.dll
 D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.pdb
 D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.genruntimeconfig.cache
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\bin\Debug\netcoreapp3.1\BoiTinhYeu.Data.deps.json
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\bin\Debug\netcoreapp3.1\BoiTinhYeu.Data.runtimeconfig.json
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\bin\Debug\netcoreapp3.1\BoiTinhYeu.Data.runtimeconfig.dev.json
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\bin\Debug\netcoreapp3.1\BoiTinhYeu.Data.dll
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\bin\Debug\netcoreapp3.1\BoiTinhYeu.Data.pdb
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.csproj.AssemblyReference.cache
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.AssemblyInfoInputs.cache
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.AssemblyInfo.cs
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.csproj.CoreCompileInputs.cache
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.dll
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.pdb
+D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.genruntimeconfig.cache

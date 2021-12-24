@@ -60,6 +60,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:focusable="false"
                 android:id="@+id/divinationDoB_myDoB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,6 +90,7 @@
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:focusable="false"
                 android:id="@+id/divinationDoB_yourDoB"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -124,12 +126,15 @@
 
         <TextView
             android:id="@+id/result"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="30dp"
-            android:textColor="@color/black"
-            android:layout_centerInParent="true"/>
+            android:textSize="20dp"
+            android:fontFamily="@font/googlesans_bold"
+            android:textColor="@color/red"
+            android:layout_centerInParent="true"
+            android:background="@drawable/heart"/>
     </LinearLayout>
 
 </LinearLayout>
