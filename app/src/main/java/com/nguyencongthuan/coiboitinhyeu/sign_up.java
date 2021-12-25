@@ -161,12 +161,13 @@ public class sign_up extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String username = String.valueOf(etUserName.getText());
                 String password = String.valueOf(etPassword.getText());
                 String fullname = String.valueOf(etFullName.getText());
                 String dob = String.valueOf(etDateOfBirth.getText());
                 String gender = spGender.getSelectedItem().toString();
-                if(username!="" && password!="" && fullname!="" && gender!="" && dob!=""){
+                if(username.length()!=0 && password.length()!=0 && fullname.length()!=0 && gender.length()!=0 && dob.length()!=0){
                     int gt = 0;
                     if(gender=="Nữ"){
                         gt=0;
@@ -184,19 +185,19 @@ public class sign_up extends AppCompatActivity {
                     callApiCreate(user);
                 }
                 else{
-                    if (username==""){
+                    if (username.length()==0){
                         etUserName.setError("Không được để trống");
                     }
                     else{
-                        if(password==""){
+                        if(fullname.length()==0){
                             etPassword.setError("Không được để trống");
                         }
                         else{
-                            if(fullname==""){
+                            if(password.length()==0){
                                 etFullName.setError("Không được để trống");
                             }
                             else{
-                                if(dob==""){
+                                if(dob.length()==0){
                                     etDateOfBirth.setError("Không được để trống");
                                 }
                             }

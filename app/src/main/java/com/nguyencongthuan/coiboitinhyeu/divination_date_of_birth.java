@@ -166,7 +166,7 @@ public class divination_date_of_birth extends AppCompatActivity {
 
                     //insert history
                     if(user != null){
-                        history = new History(user.getUsername(),soMyDob+"",soYourDob+"",rs);
+                        history = new History(user.getUsername(),txtMyDob,txtYourDob,rs);
                         createHistory(history);
                     }
                 }

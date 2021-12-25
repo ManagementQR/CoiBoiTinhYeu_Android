@@ -1,6 +1,7 @@
 package com.nguyencongthuan.coiboitinhyeu.Model;
 
 public class History {
+     private int id;
      private String username;
      private String fullname;
      private String infor;
@@ -43,5 +44,13 @@ public class History {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

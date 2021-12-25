@@ -94,9 +94,7 @@ public class profile extends AppCompatActivity {
 
             //set ngày
             profile_dateOfBirth.setText(user.getDoB());
-            //String[] arrays = user.getDoB().split("-");
 
-            //profile_dateOfBirth.setText(arrays[2]+"/"+arrays[1]+"/"+arrays[0]);
         }
 
 
@@ -123,6 +121,7 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 datePicker.openDatePicker_TextView(profile.this, tvChangeDoB);
+
             }
         });
         // move to dialog change password
@@ -135,9 +134,12 @@ public class profile extends AppCompatActivity {
 
         //trở về trang home
         toolbar = findViewById(R.id.profile_toolbar);
+        //getUser(user.getUsername());
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                user.setDoB(String.valueOf(tvChangeDoB.getText()));
+                callApoUpdate(user);
                 Intent intent = new Intent(profile.this,home.class);
                 if(user != null){
                     intent.putExtra("user", (Serializable) user);
@@ -185,21 +187,23 @@ public class profile extends AppCompatActivity {
                     profile_fullname.setText(newName.getText());
                     user.setFullname(String.valueOf(newName.getText()));
                     callApoUpdate(user);
+                    titlefullname.setText(newName.getText());
                     dialog.dismiss();
+                    openDialogSuccess(Gravity.CENTER);
                 }
             });
         }
 
-        // hide dialog success ok
-        if(view == R.layout.dialog_success){
-            Button submit = dialog.findViewById(R.id.dialog_success_ok);
-            submit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
-        }
+//        // hide dialog success ok
+//        if(view == R.layout.dialog_success){
+//            Button submit = dialog.findViewById(R.id.dialog_success_ok);
+//            submit.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    dialog.dismiss();
+//                }
+//            });
+//        }
 
         if(view == R.layout.dialog_change_gender){
             Spinner spinner = dialog.findViewById(R.id.spinner);
@@ -210,18 +214,20 @@ public class profile extends AppCompatActivity {
                 public void onClick(View v) {
                     String newGender="";
                     newGender = spinner.getSelectedItem().toString();
-                    if(newGender!="Chọn giới tính"){
+                    if(!newGender.equals("Chọn giới tính")){
                         profile_gender.setText(newGender);
-                        if(newGender=="Nữ"){
+                        if(newGender.equals("Nữ")){
                             user.setGender(0);
                         }
                         else {
                             user.setGender(1);
                         }
                         callApoUpdate(user);
+                        dialog.dismiss();
+                        openDialogSuccess(Gravity.CENTER);
                     }
 
-                    dialog.dismiss();
+
                 }
             });
         }
@@ -287,6 +293,7 @@ public class profile extends AppCompatActivity {
                             user.setPassword(newPass);
                             callApoUpdate(user);
                             dialog.dismiss();
+                            openDialogSuccess(Gravity.CENTER);
                         }
                         else{
                             oldPassword.setError("Mật khẩu không đúng!");
@@ -314,16 +321,64 @@ public class profile extends AppCompatActivity {
             public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
                     //Toast.makeText(profile.this, "tc", Toast.LENGTH_SHORT).show();
-                    openDialog(Gravity.CENTER, R.layout.dialog_success);
+                    //openDialog(Gravity.CENTER, R.layout.dialog_success);
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 //Toast.makeText(profile.this, "loi", Toast.LENGTH_SHORT).show();
-                openDialog(Gravity.CENTER, R.layout.dialog_success);
             }
         });
+    }
+
+
+    private void getUser(String username){
+        ApiService.apiService.getUser(username).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                user = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    // open dialog
+    public void openDialogSuccess(int gravity){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_success);
+
+        Window window = dialog.getWindow();
+        if(window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams windowAttributes = window.getAttributes();
+        windowAttributes.gravity = gravity;
+        window.setAttributes(windowAttributes);
+        // if click outside area, dialog will hide
+        if(Gravity.CENTER == gravity){
+            dialog.setCancelable(true);
+        } else{
+            dialog.setCancelable(false);
+        }
+
+        Button ok = dialog.findViewById(R.id.dialog_success_ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
 

@@ -35,6 +35,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <EditText
+        android:id="@+id/find"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="16dp"

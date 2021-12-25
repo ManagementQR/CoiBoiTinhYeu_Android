@@ -131,13 +131,14 @@ public class MainActivity extends AppCompatActivity {
                             User user = response.body();
                             if(user!=null){
                                 if(password.equals(user.getPassword())){
+                                    tIELogin_password.setError(null);
                                     Intent intent = new Intent(MainActivity.this, home.class);
 
                                     intent.putExtra("user", (Serializable) user);
                                     startActivity(intent);
                                 }
                                 else{
-                                    Toast.makeText(MainActivity.this, "sai mat khau", Toast.LENGTH_SHORT).show();
+                                    tIELogin_password.setError("Mật khẩu không đúng");
                                 }
                             }
                         }
@@ -162,26 +163,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-//    private void GetData(String url){
-//        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(MainActivity.this, "loi", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//        );
-//        requestQueue.add(jsonArrayRequest);
-//
-//    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setColorStatusBar() {

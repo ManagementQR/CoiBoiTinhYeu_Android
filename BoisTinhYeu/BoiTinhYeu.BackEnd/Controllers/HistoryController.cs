@@ -24,12 +24,26 @@ namespace BoiTinhYeu.BackEnd.Controllers
             var histories = _managerHistoryService.getByUsername(username);
             return Ok(histories);
         }
+        
+        [HttpGet("find")]
+        public IActionResult find([FromQuery]string username, string keyword)
+        {
+            var histories = _managerHistoryService.find(username,keyword);
+            return Ok(histories);
+        }
 
         [HttpPost]
         public IActionResult create([FromBody]History history)
         {
             var newHistory = _managerHistoryService.create(history);
             return Ok(newHistory);
+        }
+
+        [HttpDelete]
+        public IActionResult delete([FromQuery]int id)
+        {
+            _managerHistoryService.delete(id);
+            return Ok();
         }
     }
 }

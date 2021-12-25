@@ -22,3 +22,4 @@ D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu
 D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.dll
 D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.pdb
 D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.genruntimeconfig.cache
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.Data\obj\Debug\netcoreapp3.1\BoiTinhYeu.Data.csprojAssemblyReference.cache

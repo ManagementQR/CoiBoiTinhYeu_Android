@@ -9,5 +9,9 @@ namespace BoiTinhYeu.Application.HistoryService
     {
         History create(History history);
         List<History> getByUsername(string username);
+
+        List<History> find(string username, string keyword);
+
+        void delete(int id);
     }
 }

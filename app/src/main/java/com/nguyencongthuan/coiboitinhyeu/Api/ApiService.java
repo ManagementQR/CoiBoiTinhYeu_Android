@@ -1,5 +1,6 @@
 package com.nguyencongthuan.coiboitinhyeu.Api;
 
+import com.google.api.ResourceDescriptor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nguyencongthuan.coiboitinhyeu.Model.History;
@@ -12,6 +13,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
@@ -21,7 +23,7 @@ public interface ApiService {
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
     ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://192.168.202.48:5000/")
+            .baseUrl("http://192.168.1.6:5000/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
@@ -42,6 +44,9 @@ public interface ApiService {
 
     @POST("api/History")
     Call<History> createHistory(@Body History history);
+
+    @DELETE("api/History")
+    Call<History> delete(@Query("id") int id);
 
 
 }

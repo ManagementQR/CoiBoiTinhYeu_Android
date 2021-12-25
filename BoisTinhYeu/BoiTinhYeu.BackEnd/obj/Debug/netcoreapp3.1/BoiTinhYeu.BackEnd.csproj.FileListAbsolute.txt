@@ -158,3 +158,4 @@ D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.BackEnd\obj\Debug\netcoreapp3.1\BoiTinh
 D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.BackEnd\obj\Debug\netcoreapp3.1\BoiTinhYeu.BackEnd.dll
 D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.BackEnd\obj\Debug\netcoreapp3.1\BoiTinhYeu.BackEnd.pdb
 D:\Git\BoiTinhYeu\BoisTinhYeu\BoiTinhYeu.BackEnd\obj\Debug\netcoreapp3.1\BoiTinhYeu.BackEnd.genruntimeconfig.cache
+D:\Nam3_Ki1\ThucHanhAndroid\CoiBoiTinhYeu_Android\BoisTinhYeu\BoiTinhYeu.BackEnd\obj\Debug\netcoreapp3.1\BoiTinhYeu.BackEnd.MvcApplicationPartsAssemblyInfo.cs

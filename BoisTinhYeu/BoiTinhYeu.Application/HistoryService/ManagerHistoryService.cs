@@ -27,6 +27,19 @@ namespace BoiTinhYeu.Application.HistoryService
             return newHistory;
         }
 
+        public void delete(int id)
+        {
+            var history = _context.Histories.Find(id);
+            _context.Histories.Remove(history);
+            _context.SaveChanges();
+            //throw new NotImplementedException();
+        }
+
+        public List<History> find(string username, string keyword)
+        {
+            return _context.Histories.Where(x => x.Username == username && (x.Fullname.Contains(keyword) || x.infor.Contains(keyword))).ToList();
+        }
+
         public List<History> getByUsername(string username)
         {
             return _context.Histories.Where(x=>x.Username==username).ToList();

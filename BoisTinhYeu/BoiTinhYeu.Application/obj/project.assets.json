@@ -5959,19 +5959,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\congt\\.nuget\\packages\\": {}
+    "C:\\Users\\84327\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj",
+      "projectUniqueName": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj",
       "projectName": "BoiTinhYeu.Application",
-      "projectPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj",
-      "packagesPath": "C:\\Users\\congt\\.nuget\\packages\\",
-      "outputPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Application\\obj\\",
+      "projectPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Application\\BoiTinhYeu.Application.csproj",
+      "packagesPath": "C:\\Users\\84327\\.nuget\\packages\\",
+      "outputPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\congt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\84327\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5985,8 +5985,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj": {
-              "projectPath": "D:\\Git\\BoiTinhYeu\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj"
+            "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj": {
+              "projectPath": "D:\\Nam3_Ki1\\ThucHanhAndroid\\CoiBoiTinhYeu_Android\\BoisTinhYeu\\BoiTinhYeu.Data\\BoiTinhYeu.Data.csproj"
             }
           }
         }
@@ -6018,7 +6018,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

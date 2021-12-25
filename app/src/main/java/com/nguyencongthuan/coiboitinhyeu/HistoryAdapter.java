@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nguyencongthuan.coiboitinhyeu.Model.History;
@@ -58,6 +60,9 @@ public class HistoryAdapter extends BaseAdapter {
         txtMyName.setText(history.getFullname());
         txtYourName.setText(history.getInfor());
         txtResult.setText(history.getResult());
+
+
+
 
         return convertView;
     }
