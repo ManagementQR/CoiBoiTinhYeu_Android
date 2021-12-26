@@ -1,4 +1,5 @@
-﻿using BoiTinhYeu.Application.UserService;
+﻿using BoiTinhYeu.Application;
+using BoiTinhYeu.Application.UserService;
 using BoiTinhYeu.Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,13 @@ namespace BoiTinhYeu.BackEnd.Controllers
         {
             var newUser = _managerUserService.Update(user);
             return Ok(newUser);
+        }
+
+        [HttpPost("image")]
+        public IActionResult iamge([FromForm]string username, [FromForm]Image image)
+        {
+            var user = _managerUserService.addImage(username,image);
+            return Ok(user);
         }
 
     }

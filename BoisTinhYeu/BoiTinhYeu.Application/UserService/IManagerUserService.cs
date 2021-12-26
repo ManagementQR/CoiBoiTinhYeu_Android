@@ -11,5 +11,7 @@ namespace BoiTinhYeu.Application.UserService
         User Create(User user);
 
         User Update(User user);
+
+        User addImage(string username, Image image);
     }
 }

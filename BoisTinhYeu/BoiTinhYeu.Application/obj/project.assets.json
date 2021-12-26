@@ -1604,7 +1604,10 @@
         },
         "runtime": {
           "bin/placeholder/BoiTinhYeu.Data.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

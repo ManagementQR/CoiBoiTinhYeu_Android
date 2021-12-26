@@ -12,6 +12,7 @@ public class User implements Serializable {
     private String fullname ;
     private String doB ;
     private int gender ;
+    private String ava;
 
     public User(String username, String password, String fullname, String doB, int gender) {
         this.username = username;
@@ -60,5 +61,13 @@ public class User implements Serializable {
 
     public void setGender(int gender) {
         this.gender = gender;
+    }
+
+    public String getAva() {
+        return ava;
+    }
+
+    public void setAva(String ava) {
+        this.ava = ava;
     }
 }

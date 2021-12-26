@@ -1,4 +1,5 @@
 ﻿using BoiTinhYeu.Application.CatrgoryService;
+using BoiTinhYeu.Application.Common;
 using BoiTinhYeu.Application.HistoryService;
 using BoiTinhYeu.Application.UserService;
 using BoiTinhYeu.Data.EF;
@@ -37,7 +38,8 @@ namespace BoiTinhYeu.BackEnd
             services.AddTransient<IManagerUserService, ManagerUserService>(); //mỗi lần request sẽ tạo mới
             services.AddTransient<IManagerCatogeryService, ManagerCatogeryService>(); //mỗi lần request sẽ tạo mới
             services.AddTransient<IManagerHistoryService, ManagerHistoryService>();
-          
+            services.AddTransient<IStorageService, StorageService>(); //mỗi lần request sẽ tạo mới
+
             services.AddControllers();
 
             services.AddSwaggerGen(c =>

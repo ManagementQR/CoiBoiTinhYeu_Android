@@ -1,19 +1,26 @@
 package com.nguyencongthuan.coiboitinhyeu;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -21,21 +28,31 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputEditText;
 import com.nguyencongthuan.coiboitinhyeu.Api.ApiService;
+import com.nguyencongthuan.coiboitinhyeu.Model.RealPathUtil;
 import com.nguyencongthuan.coiboitinhyeu.Model.User;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Date;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Multipart;
 
 public class profile extends AppCompatActivity {
 
@@ -51,6 +68,11 @@ public class profile extends AppCompatActivity {
     private User user;
     private Toolbar toolbar;
     private Button btnDialogSuccessOk;
+    private ImageView imgAva;
+    private int REQUEST_IMAGE = 123;
+    private int MY_REQUEST = 111;
+    private Uri mUri;
+    private ImageView ava;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -79,6 +101,12 @@ public class profile extends AppCompatActivity {
         profile_fullname = findViewById(R.id.profile_fullname);
         profile_gender = findViewById(R.id.profile_gender);
         profile_dateOfBirth = findViewById(R.id.profile_dateOfBirth);
+        ava = findViewById(R.id.profile_image);
+
+        //set ava từ server
+        Glide.with(profile.this).load(ApiService.url+"user-content/"+user.getAva()).into(ava);
+
+
 
         //set text for profile
         if(user != null){
@@ -147,8 +175,73 @@ public class profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //set ava
+        imgAva = findViewById(R.id.imgAva);
+        imgAva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M )
+                {
+                    return;
+                }
+                if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED){
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType("image/*");
+                    startActivityForResult(intent,REQUEST_IMAGE);
+                }
+                else
+                {
+                    String[] permission = {Manifest.permission.READ_EXTERNAL_STORAGE};
+                    requestPermissions(permission, MY_REQUEST);
+                }
+
+            }
+        });
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == REQUEST_IMAGE && resultCode == RESULT_OK && data != null){
+            Uri uri = data.getData();
+            mUri = uri;
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                ava.setImageBitmap(bitmap);
+                callApiImage();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void callApiImage(){
+        RequestBody requestBodyUsername = RequestBody.create(MediaType.parse("multipart/form-data"),user.getUsername());
+
+        String realFile = RealPathUtil.getRealPath(this,mUri);
+        Log.e("d",realFile);
+        File file = new File(realFile);
+        RequestBody requestBodyAva = RequestBody.create(MediaType.parse("multipart/form-data"),file);
+        MultipartBody.Part multipartAva = MultipartBody.Part.createFormData("image",file.getName(),requestBodyAva);
+        ApiService.apiService.uploadImage(requestBodyUsername,multipartAva).enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                user = response.body();
+                if(user!=null){
+                    Glide.with(profile.this).load(ApiService.url+"user-content/"+user.getAva()).into(ava);                }
+                Toast.makeText(profile.this, "tc", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(profile.this, "loi", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setColorStatusBar() {
         getWindow().setStatusBarColor(ContextCompat.getColor(profile.this,R.color.pinkStatusBar));

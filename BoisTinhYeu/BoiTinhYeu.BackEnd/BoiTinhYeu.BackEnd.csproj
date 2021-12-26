@@ -13,4 +13,8 @@
     <ProjectReference Include="..\BoiTinhYeu.Data\BoiTinhYeu.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
+
 </Project>
